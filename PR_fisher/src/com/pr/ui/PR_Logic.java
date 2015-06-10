@@ -29,6 +29,7 @@ public class PR_Logic {
 	protected int[] classLabels;
 	protected int[] sampleCount;
 	protected String[] classNames;
+        
 	
 	public Classifier actualClassifier;
 
