@@ -1,3 +1,4 @@
+package com.pr.ui;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class PR_Window extends javax.swing.JFrame {
         l_dataset_name = new javax.swing.JLabel();
         l_nfeatures = new javax.swing.JLabel();
         l_nfeatures1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jb_parseDSet = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -77,13 +78,17 @@ public class PR_Window extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        b_Train = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jb_test_train = new javax.swing.JButton();
+        jb_test_exe = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         tf_TrainSetSize = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        b_Train1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jb_train = new javax.swing.JButton();
+        jb_exe = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        lbl_classResult = new javax.swing.JLabel();
+        tf_kValue = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         l_FLD_winner = new javax.swing.JLabel();
@@ -158,9 +163,9 @@ public class PR_Window extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(10, 50, 320, 80);
 
-        jButton2.setText("Parse dataset");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(190, 10, 130, 25);
+        jb_parseDSet.setText("Parse dataset");
+        getContentPane().add(jb_parseDSet);
+        jb_parseDSet.setBounds(190, 10, 130, 25);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -205,11 +210,6 @@ public class PR_Window extends javax.swing.JFrame {
 
         f_combo_criterion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fisher discriminant", "Classification error" }));
         f_combo_criterion.setEnabled(false);
-        f_combo_criterion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_combo_criterionActionPerformed(evt);
-            }
-        });
         jPanel3.add(f_combo_criterion);
         f_combo_criterion.setBounds(160, 70, 140, 22);
 
@@ -275,13 +275,13 @@ public class PR_Window extends javax.swing.JFrame {
         jPanel4.add(jComboBox2);
         jComboBox2.setBounds(74, 41, 178, 22);
 
-        b_Train.setText("Train");
-        jPanel4.add(b_Train);
-        b_Train.setBounds(40, 90, 98, 25);
+        jb_test_train.setText("Train");
+        jPanel4.add(jb_test_train);
+        jb_test_train.setBounds(30, 80, 98, 25);
 
-        jButton4.setText("Execute");
-        jPanel4.add(jButton4);
-        jButton4.setBounds(210, 90, 96, 25);
+        jb_test_exe.setText("Execute");
+        jPanel4.add(jb_test_exe);
+        jb_test_exe.setBounds(210, 90, 96, 25);
 
         jLabel16.setText("Training part:");
         jPanel4.add(jLabel16);
@@ -295,13 +295,29 @@ public class PR_Window extends javax.swing.JFrame {
         jPanel4.add(jLabel17);
         jLabel17.setBounds(140, 170, 20, 16);
 
-        b_Train1.setText("Train");
-        jPanel4.add(b_Train1);
-        b_Train1.setBounds(40, 130, 98, 25);
+        jb_train.setText("Train");
+        jPanel4.add(jb_train);
+        jb_train.setBounds(40, 130, 98, 25);
 
-        jButton5.setText("Execute");
-        jPanel4.add(jButton5);
-        jButton5.setBounds(210, 130, 96, 25);
+        jb_exe.setText("Execute");
+        jPanel4.add(jb_exe);
+        jb_exe.setBounds(210, 130, 96, 25);
+
+        jLabel18.setText("Class is: ");
+        jPanel4.add(jLabel18);
+        jLabel18.setBounds(110, 20, 70, 10);
+
+        lbl_classResult.setText("_(0_o)_");
+        jPanel4.add(lbl_classResult);
+        lbl_classResult.setBounds(190, 10, 150, 20);
+
+        tf_kValue.setText("3");
+        jPanel4.add(tf_kValue);
+        tf_kValue.setBounds(280, 170, 20, 22);
+
+        jLabel19.setText("k - factor: ");
+        jPanel4.add(jLabel19);
+        jLabel19.setBounds(200, 170, 80, 16);
 
         getContentPane().add(jPanel4);
         jPanel4.setBounds(340, 150, 350, 210);
@@ -326,39 +342,24 @@ public class PR_Window extends javax.swing.JFrame {
         l_FLD_val.setBounds(100, 60, 48, 16);
 
         getContentPane().add(jPanel5);
-        jPanel5.setBounds(340, 10, 160, 130);
+        jPanel5.setBounds(340, 10, 180, 130);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void f_combo_criterionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_combo_criterionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_combo_criterionActionPerformed
-
     /**
     * @param args the command line arguments
     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PR_Window().setVisible(true);
-            }
-        });
-    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton b_Train;
-    private javax.swing.JButton b_Train1;
-    private javax.swing.JButton b_deriveFS;
-    private javax.swing.JButton b_read;
-    private javax.swing.JComboBox f_combo_PCA_LDA;
-    private javax.swing.JComboBox f_combo_criterion;
-    private javax.swing.JRadioButton f_rb_extr;
-    private javax.swing.JRadioButton f_rb_sel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox jComboBox2;
+    protected javax.swing.JButton b_deriveFS;
+    protected javax.swing.JButton b_read;
+    protected javax.swing.JComboBox f_combo_PCA_LDA;
+    protected javax.swing.JComboBox f_combo_criterion;
+    protected javax.swing.JRadioButton f_rb_extr;
+    protected javax.swing.JRadioButton f_rb_sel;
+    protected javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -367,6 +368,8 @@ public class PR_Window extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    protected javax.swing.JLabel jLabel18;
+    protected javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -374,23 +377,30 @@ public class PR_Window extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    protected javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    protected javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel l_FLD_val;
-    private javax.swing.JLabel l_FLD_winner;
-    private javax.swing.JLabel l_NewDim;
-    private javax.swing.JLabel l_dataset_name;
+    protected javax.swing.JButton jb_exe;
+    protected javax.swing.JButton jb_parseDSet;
+    protected javax.swing.JButton jb_test_exe;
+    protected javax.swing.JButton jb_test_train;
+    protected javax.swing.JButton jb_train;
+    protected javax.swing.JLabel l_FLD_val;
+    protected javax.swing.JLabel l_FLD_winner;
+    protected javax.swing.JLabel l_NewDim;
+    protected javax.swing.JLabel l_dataset_name;
     private javax.swing.JLabel l_dataset_name_l;
-    private javax.swing.JLabel l_nfeatures;
-    private javax.swing.JLabel l_nfeatures1;
+    protected javax.swing.JLabel l_nfeatures;
+    protected javax.swing.JLabel l_nfeatures1;
+    protected javax.swing.JLabel lbl_classResult;
     private javax.swing.ButtonGroup rbg_F;
-    private javax.swing.JComboBox selbox_nfeat;
-    private javax.swing.JTextField tf_PCA_Energy;
-    private javax.swing.JTextField tf_TrainSetSize;
+    protected javax.swing.JComboBox selbox_nfeat;
+    protected javax.swing.JTextField tf_PCA_Energy;
+    protected javax.swing.JTextField tf_TrainSetSize;
+    protected javax.swing.JTextField tf_kValue;
     // End of variables declaration//GEN-END:variables
 
     private String readDataSet() {
