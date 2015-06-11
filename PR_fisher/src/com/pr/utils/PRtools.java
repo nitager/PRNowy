@@ -14,6 +14,26 @@ import java.util.List;
  */
 public class PRtools {
     
+    public static List<Integer> genIntList(int n){
+        List<Integer> list=new ArrayList();
+        for(int i=0;i<n;i++){
+        list.add(n);
+        }
+        
+        return list;
+    }
+    
+    public List<List<Integer>> genCombinationListOfIndexses(int n, int k){
+     List<List<Integer>> listsOfIndexes=new ArrayList<>();
+        CombinationIterator<Integer> myIndexes=new CombinationIterator<Integer>(genIntList(n), k);
+     while(myIndexes.hasNext()){
+     listsOfIndexes.add(new ArrayList(myIndexes.next()));
+     }   
+        
+        
+    
+    return listsOfIndexes;}
+    
     public static List<String> genStringListOfInts(int n) {
         List<String> list = new ArrayList<String>();
         for (int i = 0; i < n; i++);

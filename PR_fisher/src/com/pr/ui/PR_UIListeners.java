@@ -12,6 +12,7 @@ import com.pr.stat.Classifier;
 import com.pr.stat.KNMeansClassifier;
 import com.pr.stat.KNNeighbourClassifier;
 import com.pr.stat.NMeanClassifier;
+import com.pr.utils.PRtools;
 import statystyczne.FeaturesSelectionResult;
 
 /**
@@ -199,11 +200,8 @@ public class PR_UIListeners {
 	}
 	
 	private void setAvailableDimensions(int featureCount) {
-		String[] availableDimensions = new String[featureCount];
-		for (int i = 0; i < featureCount; i++) {
-			availableDimensions[i] = "" + (i + 1);
-		}
-		window.selbox_nfeat.setModel(new DefaultComboBoxModel<String>(PRtools.));
+		
+		window.selbox_nfeat.setModel(new DefaultComboBoxModel<String>(PRtools.genStringArrayOfInts(featureCount)));
 	}
 	
 	private int validateK (String kString) {
