@@ -1,4 +1,4 @@
-package classifiers;
+package com.pr.stat;
 
 public class ClassOccurences implements Comparable<ClassOccurences> {
 

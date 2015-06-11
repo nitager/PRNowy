@@ -1,4 +1,4 @@
-package classifiers;
+package com.pr.stat;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package classifiers;
+package com.pr.stat;
 
 import java.util.Arrays;
 

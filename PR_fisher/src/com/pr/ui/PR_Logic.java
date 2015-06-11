@@ -1,4 +1,4 @@
-package statystyczne;
+package com.pr.ui;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +11,8 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Jama.Matrix;
-import classifiers.Classifier;
+import com.pr.stat.Classifier;
+import statystyczne.FeaturesSelectionResult;
 
 /**
  * @author krzy

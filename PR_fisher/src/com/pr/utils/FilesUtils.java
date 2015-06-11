@@ -1,12 +1,12 @@
-package utils;
+package com.pr.utils;
 
+import com.pr.stat.ClassificationObject;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import classifiers.ClassificationObject;
 
 public class FilesUtils {
 

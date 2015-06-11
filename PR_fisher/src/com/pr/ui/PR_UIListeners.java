@@ -1,4 +1,4 @@
-package statystyczne;
+package com.pr.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,24 +6,26 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
-import classifiers.Classifier;
-import classifiers.KNMeansClassifier;
-import classifiers.KNNeighbourClassifier;
-import classifiers.NMeanClassifier;
+
 import Jama.Matrix;
+import com.pr.stat.Classifier;
+import com.pr.stat.KNMeansClassifier;
+import com.pr.stat.KNNeighbourClassifier;
+import com.pr.stat.NMeanClassifier;
+import statystyczne.FeaturesSelectionResult;
 
 /**
- * @author krzy
- * @author Jakub Bentyn 194311
- * @author Kamil Chaber 194315
+ * 
+ * @author
  * 
  */
-public class PR_Listeners {
+public class PR_UIListeners {
 	
-	private PRWindow window;
+	private PR_Window window;
 	private PR_Logic logic;
 	
-	public PR_Listeners(PRWindow window, PR_Logic logic) {
+        
+	public PR_UIListeners( PR_Logic logic, PR_Window window) {
 		if (window == null) {
 			throw new NullPointerException("window cannot be null");
 		} else if (logic == null) {
@@ -34,6 +36,22 @@ public class PR_Listeners {
 		this.logic = logic;
 	}
 	
+        public PR_UIListeners()
+        {
+	
+            this.logic=new PR_Logic();
+            this.window=new PR_Window();
+            if (window == null) {
+			throw new NullPointerException("window cannot be null");
+		} else if (logic == null) {
+			throw new NullPointerException("login cannot be null");
+		}
+		
+		this.window = window;
+		this.logic = logic;
+	}
+        
+        
 	public void initializeListeners() {
 		window.b_read.addActionListener(new ActionListener() {
 			@Override
@@ -42,7 +60,7 @@ public class PR_Listeners {
 			}
 		});
 		
-		window.jButton2.addActionListener(new ActionListener() {
+		window.jb_parseDSet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				jButton2ActionPerformed(evt);
 			}
@@ -66,13 +84,13 @@ public class PR_Listeners {
 			}
 		});
 		
-		window.b_Train.addActionListener(new ActionListener() {
+		window.jb_test_train.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				b_TrainActionPerformed(evt);
 			}
 		});
 		
-		window.jButtonExecute.addActionListener(new ActionListener() {
+		window.jb_exe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				executeActionPerformed(evt);
 			}
@@ -81,7 +99,7 @@ public class PR_Listeners {
 	
 	private void executeActionPerformed(ActionEvent evt) {
 		double classification=logic.actualClassifier.testClassifier();
-		window.classResultLabel.setText( String.valueOf(classification * 100) );
+		window.lbl_classResult.setText( String.valueOf(classification * 100) );
 	}
 	
 	private void b_TrainActionPerformed(ActionEvent evt) {
@@ -99,15 +117,15 @@ public class PR_Listeners {
 			
 		} else if (window.jComboBox2.getSelectedIndex() == 1) {
 			
-			classifier = new NMeanClassifier(window.useMachalRadio.isSelected());
+		//	classifier = new NMeanClassifier(window.useMachalRadio.isSelected());
 			
 		} else if (window.jComboBox2.getSelectedIndex() == 2) {
 			
-			k = validateK(window.kTextField.getText());
+			k = validateK(window.tf_kValue.getText());
 			classifier = new KNNeighbourClassifier(k);
 			
 		} else {
-			classifier = new KNMeansClassifier(window.useMachalRadio.isSelected());
+			//classifier = new KNMeansClassifier(window.useMachalRadio.isSelected());
 		}
 		
 		classifier.trainClassifier(logic.featuresTransformed, window.tf_TrainSetSize.getText(), logic.classLabels);
@@ -154,7 +172,7 @@ public class PR_Listeners {
 		if (window.f_rb_sel.isSelected()) {
 			// the chosen strategy is feature selection
 			int[] flags = new int[logic.featureCount];
-			FeaturesSelectionResult featuresSelectionResult = logic.selectFeatures(flags, Integer.parseInt((String) window.selbox_nfeat.getSelectedItem()), window.useTraceRadio.isSelected());
+			FeaturesSelectionResult featuresSelectionResult = logic.selectFeatures(flags, Integer.parseInt((String) window.selbox_nfeat.getSelectedItem()), false);
 			logic.setTransformedFeatures(featuresSelectionResult);
 			
 			window.l_FLD_winner.setText(featuresSelectionResult.getFeaturesNumbersAsString());

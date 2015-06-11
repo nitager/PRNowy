@@ -1,4 +1,4 @@
-package statystyczne;
+package com.pr.ui;
 
 import java.awt.EventQueue;
 
@@ -19,7 +19,8 @@ public class PR_Main {
 			public void run() {
 				PR_Window window = new PR_Window();
 				PR_Logic logic = new PR_Logic();
-				PR_Listeners listeneres = new PR_Listeners(window, logic);
+				PR_UIListeners listeneres;
+                            listeneres = new PR_UIListeners(logic,window);
 				
 				listeneres.initializeListeners();
 				
