@@ -50,7 +50,9 @@ public class PR_Logic {
 			} catch (Exception e) {
 			}
 		}
+                System.out.println("Odczytano zbór");
 		return s_out;
+                
 	}
 
 	public void getDatasetParameters() throws Exception {
@@ -106,6 +108,10 @@ public class PR_Logic {
 		classLabels = new int[LabelList.size()];
 		for (int i = 0; i < classLabels.length; i++)
 			classLabels[i] = LabelList.get(i).intValue();
+                
+                
+                classCount=classNames.length;
+                System.out.println("Załadowano zbiór danych");
 	}
 
 	public void fillFeatureMatrix() throws Exception {
@@ -129,7 +135,8 @@ public class PR_Logic {
 			features[featureCount - 1][j] = Double.parseDouble(saux);
 			stmp = stmp.substring(stmp.indexOf('$') + 1);
 		}
-	}
+	System.out.println("Załadowano macierz danych");
+        }
 
 	public FeaturesSelectionResult selectFeatures(int[] flags, int d, boolean traceVsDet) {
 		// for now: check all individual features using 1D, 2-class Fisher criterion
@@ -152,6 +159,7 @@ public class PR_Logic {
 		}
 
 		return result;
+                
 	}
 
 	public void setTransformedFeatures (FeaturesSelectionResult results) {

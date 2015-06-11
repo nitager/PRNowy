@@ -55,7 +55,7 @@ public class PR_Window extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         l_dataset_name = new javax.swing.JLabel();
         l_nfeatures = new javax.swing.JLabel();
-        l_nfeatures1 = new javax.swing.JLabel();
+        l_classCounter = new javax.swing.JLabel();
         jb_parseDSet = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -104,6 +104,7 @@ public class PR_Window extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setPreferredSize(new java.awt.Dimension(400, 80));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabel1.setText("Dataset info");
@@ -115,10 +116,11 @@ public class PR_Window extends javax.swing.JFrame {
         jLabel4.setText("Features:");
 
         l_dataset_name.setText("...");
+        l_dataset_name.setMaximumSize(new java.awt.Dimension(12, 130));
 
         l_nfeatures.setText("...");
 
-        l_nfeatures1.setText("...");
+        l_classCounter.setText("...");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -127,12 +129,12 @@ public class PR_Window extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(l_dataset_name_l)
                         .addGap(18, 18, 18)
-                        .addComponent(l_dataset_name))
-                    .addComponent(jLabel1))
-                .addGap(94, 94, 94)
+                        .addComponent(l_dataset_name, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -141,7 +143,7 @@ public class PR_Window extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(l_nfeatures1)))
+                        .addComponent(l_classCounter)))
                 .addGap(100, 100, 100))
         );
         jPanel2Layout.setVerticalGroup(
@@ -150,12 +152,12 @@ public class PR_Window extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
-                    .addComponent(l_nfeatures1))
+                    .addComponent(l_classCounter))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(l_dataset_name_l)
                     .addComponent(jLabel4)
-                    .addComponent(l_dataset_name)
+                    .addComponent(l_dataset_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(l_nfeatures))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
@@ -391,10 +393,10 @@ public class PR_Window extends javax.swing.JFrame {
     protected javax.swing.JLabel l_FLD_val;
     protected javax.swing.JLabel l_FLD_winner;
     protected javax.swing.JLabel l_NewDim;
+    protected javax.swing.JLabel l_classCounter;
     protected javax.swing.JLabel l_dataset_name;
     private javax.swing.JLabel l_dataset_name_l;
     protected javax.swing.JLabel l_nfeatures;
-    protected javax.swing.JLabel l_nfeatures1;
     protected javax.swing.JLabel lbl_classResult;
     private javax.swing.ButtonGroup rbg_F;
     protected javax.swing.JComboBox selbox_nfeat;

@@ -156,8 +156,10 @@ public class PR_UIListeners {
 			if (logic.inputData != null) {
 				logic.getDatasetParameters();
 				window.l_nfeatures.setText(logic.featureCount + "");
-				this.setAvailableDimensions(logic.featureCount);
-				logic.fillFeatureMatrix();
+				window.l_classCounter.setText(logic.classCount+"");
+                                this.setAvailableDimensions(logic.featureCount);
+				
+                                logic.fillFeatureMatrix();
 			}
 		} catch (Exception ex) {
 			JOptionPane.showMessageDialog(window, ex.getMessage());
