@@ -62,7 +62,7 @@ public class PR_UIListeners {
 		
 		window.jb_parseDSet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				jButton2ActionPerformed(evt);
+				jb_parseActionPerformed(evt);
 			}
 		});
 		
@@ -148,7 +148,7 @@ public class PR_UIListeners {
 		logic.inputData = logic.readDataSet(window);
 	}
 
-	private void jButton2ActionPerformed(ActionEvent evt) {
+	private void jb_parseActionPerformed(ActionEvent evt) {
 		// Analyze text inputted from a file: determine class number and labels
 		// and number
 		// of features; build feature matrix: columns - samples, rows - features
@@ -203,7 +203,7 @@ public class PR_UIListeners {
 		for (int i = 0; i < featureCount; i++) {
 			availableDimensions[i] = "" + (i + 1);
 		}
-		window.selbox_nfeat.setModel(new DefaultComboBoxModel<String>(availableDimensions));
+		window.selbox_nfeat.setModel(new DefaultComboBoxModel<String>(PRtools.));
 	}
 	
 	private int validateK (String kString) {
