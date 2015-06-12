@@ -23,7 +23,7 @@ public class PRtools {
         return list;
     }
     
-    public List<List<Integer>> genCombinationListOfIndexses(int n, int k){
+    public static List<List<Integer>> genCombinationListOfIndexses(int n, int k){
      List<List<Integer>> listsOfIndexes=new ArrayList<>();
         CombinationIterator<Integer> myIndexes=new CombinationIterator<Integer>(genIntList(n), k);
      while(myIndexes.hasNext()){
@@ -36,8 +36,8 @@ public class PRtools {
     
     public static List<String> genStringListOfInts(int n) {
         List<String> list = new ArrayList<String>();
-        for (int i = 0; i < n; i++);
-        list.add(Integer.toOctalString(n));
+        for (int i = 0; i < n; i++){
+        list.add(Integer.toString(i));}
         
         return list;
     }
@@ -52,7 +52,7 @@ public class PRtools {
      public static String[] genStringArrayOfInts(Integer n) {
         String[] list=new String[n];
         for (int i = 0; i < n; i++){
-         list[i]= Integer.toString(n);
+         list[i]= Integer.toString(i);
         }
         return list;
     }

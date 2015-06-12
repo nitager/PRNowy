@@ -183,26 +183,28 @@ public class PR_UIListeners {
 			
 			
 		} else if (window.f_rb_extr.isSelected()) {
-			double TotEnergy = Double.parseDouble(window.tf_PCA_Energy.getText()) / 100.0;
-			// Target dimension (if k>0) or flag for energy-based dimension
-			// (k=0)
-			int k = 0;
-			// double[][] FF = { {1,1}, {1,2}};
-			// double[][] FF = { {-2,0,2}, {-1,0,1}};
-			// F is an array of initial features, FNew is the resulting array
-			double[][] FFNorm = logic.centerAroundMean(logic.features);
-			Matrix Cov = logic.computeCovarianceMatrix(FFNorm);
-			Matrix TransformMat = logic.extractFeatures(Cov, TotEnergy, k);
-			logic.featuresTransformed = logic.projectSamples(new Matrix(FFNorm), TransformMat);
-			// FNew is a matrix with samples projected to a new feature space
-			window.l_NewDim.setText(logic.featuresTransformed.length + "");
+//			double TotEnergy = Double.parseDouble(window.tf_PCA_Energy.getText()) / 100.0;
+//			// Target dimension (if k>0) or flag for energy-based dimension
+//			// (k=0)
+//			int k = 0;
+//			// double[][] FF = { {1,1}, {1,2}};
+//			// double[][] FF = { {-2,0,2}, {-1,0,1}};
+//			// F is an array of initial features, FNew is the resulting array
+//			double[][] FFNorm = logic.centerAroundMean(logic.features);
+//			Matrix Cov = logic.computeCovarianceMatrix(FFNorm);
+//			Matrix TransformMat = logic.extractFeatures(Cov, TotEnergy, k);
+//			logic.featuresTransformed = logic.projectSamples(new Matrix(FFNorm), TransformMat);
+//			// FNew is a matrix with samples projected to a new feature space
+//			window.l_NewDim.setText(logic.featuresTransformed.length + "");
 		}
 	}
 	
 	private void setAvailableDimensions(int featureCount) {
 		
-		window.selbox_nfeat.setModel(new DefaultComboBoxModel<String>(PRtools.genStringArrayOfInts(featureCount)));
-	}
+		window.selbox_nfeat.setModel(new DefaultComboBoxModel<String>(PRtools.genStringArrayOfInts(featureCount+1)));
+                window.selbox_nfeat.setEnabled(true);
+                window.f_combo_criterion.setEnabled(true);
+        }
 	
 	private int validateK (String kString) {
 		int k =0;
