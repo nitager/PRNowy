@@ -174,13 +174,18 @@ public class PR_UIListeners {
 			return;
 		if (window.f_rb_sel.isSelected()) {
 			// the chosen strategy is feature selection
-			int[] flags = new int[logic.featureCount];
+		if(1==1){
+                logic.separeteClassObjectFromF();
+                }
+                    if(1==0){
+                    int[] flags = new int[logic.featureCount];
 			FeaturesSelectionResult featuresSelectionResult = logic.selectFeatures(flags, Integer.parseInt((String) window.selbox_nfeat.getSelectedItem()), false);
 			logic.setTransformedFeatures(featuresSelectionResult);
 			
 			window.l_FLD_winner.setText(featuresSelectionResult.getFeaturesNumbersAsString());
 			window.l_FLD_val.setText(featuresSelectionResult.getFisherLD() + "");
-			
+                }
+                
 			
 		} else if (window.f_rb_extr.isSelected()) {
 //			double TotEnergy = Double.parseDouble(window.tf_PCA_Energy.getText()) / 100.0;

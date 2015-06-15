@@ -1,4 +1,4 @@
-package statystyczne;
+package com.pr.stat;
 
 import java.util.ArrayList;
 import java.util.Arrays;

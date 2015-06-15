@@ -12,6 +12,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Jama.Matrix;
 import com.pr.stat.Classifier;
+import com.pr.utils.PRtools;
 import statystyczne.FeaturesSelectionResult;
 
 /**
@@ -21,7 +22,7 @@ import statystyczne.FeaturesSelectionResult;
  * 
  */
 public class PR_Logic {
-
+        
 	protected String inputData; 			  // dataset from a text file will be placed here
 	protected int classCount = 0;
 	protected int featureCount = 0;
@@ -30,7 +31,10 @@ public class PR_Logic {
 	protected int[] classLabels;
 	protected int[] sampleCount;
 	protected String[] classNames;
+        protected Matrix objectsSet;
+        //lista maciezy z obiektami danej klasy;
         
+        protected List<Matrix> separatedClasses;
 	
 	public Classifier actualClassifier;
 
@@ -54,8 +58,20 @@ public class PR_Logic {
 		return s_out;
                 
 	}
-
-	public void getDatasetParameters() throws Exception {
+        
+        public PR_Logic(){
+        separatedClasses=new ArrayList();
+        }
+        
+        public void separeteClassObjectFromF(){
+            objectsSet=new Matrix(features);
+            System.out.println("Samples :" );
+            PRtools.printArray(classLabels);
+        
+        
+        }
+	
+        public void getDatasetParameters() throws Exception {
 		// based on data stored in InData determine: class count and names,
 		// number of samples
 		// and number of features; set the corresponding variables

@@ -56,7 +56,13 @@ public class PRtools {
         }
         return list;
     }
-    
+   public static void printArray(int[] src){
+   
+       for(int i=0;i<src.length;i++){
+       System.out.println(" i ="+i +" is :" +src[i]);
+       }
+   
+   } 
     public static void printintMtx(int[][] src) {
         if (src == null) {
             System.out.println("Brak danych w tablicy 2D ");
