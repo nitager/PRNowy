@@ -7,13 +7,10 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 
-import Jama.Matrix;
 import com.pr.stat.Classifier;
-import com.pr.stat.KNMeansClassifier;
+import com.pr.stat.FeaturesSelectionResult;
 import com.pr.stat.KNNeighbourClassifier;
-import com.pr.stat.NMeanClassifier;
 import com.pr.utils.PRtools;
-import statystyczne.FeaturesSelectionResult;
 
 /**
  * 

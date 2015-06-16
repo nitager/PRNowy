@@ -12,6 +12,7 @@ package com.pr.stat;
 public class ClassCoordinates {
     int startIndex;
     int endIndex;
+      public ClassCoordinates(){}
     public ClassCoordinates(int start,int end){
     this.startIndex=start;
     this.endIndex=end;
